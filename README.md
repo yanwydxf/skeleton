@@ -20,7 +20,7 @@
 <template>
 	<view>
 		<view class="content">
-			<p>示例01-基础用法(列表):</p>
+			<p>基础用法(列表):</p>
 			
 			<skeleton :row='3' :animate='true' :loading='loading' variant='p'>
 				<view >
@@ -29,33 +29,17 @@
 				 <p>测试新闻标题3号</p>
 				</view>
 			</skeleton>
-			<p>示例02-带图片+标题:</p>
-			<skeleton :animate='true' :loading='loading' variant='image'>
-				<view >
-					<image src='https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'></image>
-				</view>
-			</skeleton>
-			<skeleton :animate='true' :loading='loading' variant='h1'>
-				<view >
-					<h1>萌猫大作战1.0</h1>
-				</view>
-			</skeleton>
-			<p>示例03-标题+圆圈+描述:</p>
-			<skeleton :animate='true' :loading='loading' variant='h3'>
-				<view >
-					<h1>萌猫大作战2.0</h1>
-				</view>
-			</skeleton>
-			<skeleton :animate='true' :loading='loading' rowWidth='100px' rowHeight='100px' variant='circle'>
-				<view class="image">
-					<image src='https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'></image>
-				</view>
-			</skeleton>
-			<skeleton :animate='true' :loading='loading' variant='text'>
-				<view class="desc">
-					<text>主人公为一只萌系猫咪.</text>
-				</view>
-			</skeleton>
+			 <p>图片+标题:</p>
+				<skeleton :animate='true' :loading='loading' variant='image'>
+					<view >
+						<image src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1686&q=800'></image>
+					</view>
+				</skeleton>
+				<skeleton :animate='true' :loading='loading' variant='h1'>
+					<view >
+						<h1>萌猫大作战1.0</h1>
+					</view>
+				</skeleton>	
 		</view>
 	</view>
 </template>
@@ -82,17 +66,10 @@
 page{
 	padding: 12px;
 }
-button{
-	width: 20%;
-}
-image{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-}
 </style>
 ```
 
 ## 效果图
 
-![图片描述](https://doc.shiyanlou.com/courses/5791/1693782/4cc729462c7a731b9994cdce4d7ac064-0)
+![图片描述](https://doc.shiyanlou.com/courses/5791/1693782/22dce59e4041c08bc3b44d7862a93c3c-0)
+
