@@ -1,14 +1,14 @@
 <template>
 	<view>
 		<view class="skeleton" v-show="loading" :class="[animationClass]" v-for="skeleton in count">
-			<view class="row" >
-				<view v-for="(item,index) in row" :key="item">
-					<view :style="{width:rowWidth,height:rowHeight}" v-if="variant === 'image'" :class="[varianttype]">
+			<view class="row" :style="{'flex-direction':direction}" >
+				<view v-for="(item,index) in row" :key="item" class="row-item" :style="{'margin-right':mright}" >
+					<view :style="{width:rowWidth,height:rowHeight,'border-radius':radius}"  v-if="variant === 'image'" :class="[varianttype]">
 						<svg  viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
 						    <path d="M64 896V128h896v768H64z m64-128l192-192 116.352 116.352L640 448l256 307.2V192H128v576z m224-480a96 96 0 1 1-0.064 192.064A96 96 0 0 1 352 288z"/>
 						</svg>
 					</view>
-					<view v-else :class="[varianttype]" :style="{width:rowWidth,height:rowHeight}"  class="row-class"></view>
+					<view v-else :class="[varianttype]" :style="{width:rowWidth,height:rowHeight}" class="row-class"></view>
 				</view>
 			</view>
 		</view>
@@ -45,6 +45,19 @@
 			},
 			//段落行高度
 			rowHeight:{
+				type: String | Number,
+			},
+			//圆角的边框
+			radius:{
+				type: String | Number
+			},
+			//调整主轴方向
+			direction:{
+				type: String,
+				default: 'column'
+			},
+			//右侧外边距
+			mright:{
 				type: String | Number
 			},
 			//当前显示的占位元素的样式
@@ -97,13 +110,21 @@
 	.skeleton {
 		background-color: #fff;
 	}
-	
+	.row{
+		display: flex; 
+	}
 	.row-class {
 		width: 100%;
 		height: 16px;
 		margin-top: 12px;
+		display: flex;
 	}
-	
+	.row-item{
+		width: 100%;
+	}
+	.row-item:nth-last-child(1){
+		margin-right: 0 !important;
+	}
 	.skeleton_animation .row-class,.skeleton__image {
 		background: linear-gradient(
 		90deg,#f2f2f2 25%,#e6e6e6 37%,#f2f2f2 63%);
@@ -144,10 +165,12 @@
 	    height:  $skeleton-text-height;
 	}
 	.skeleton__p {
+		flex-shrink: 0;
 	    width: 100%;
 	    height: $skeleton-p-height;
 	}
 	.skeleton__image {
+		margin-right: 8px;
 		width: $skeleton-image-width;
 		height:$skeleton-image-height;
 		background-color: #f2f2f2;
@@ -155,6 +178,9 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 0;
+	}
+	.row-item:nth-last-child(1) .skeleton__image{
+		margin-right: 0px;
 	}
 	.skeleton__image svg {
 	    fill: #dcdde0;
